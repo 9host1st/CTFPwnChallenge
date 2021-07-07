@@ -23,6 +23,6 @@ if __name__ == "__main__":
     _IO_2_1_stdin_ = (u32(p.recv(4))) - 71
     libc_base = _IO_2_1_stdin_ - libc.symbols['_IO_2_1_stdin_']
     p.success("libc_base : " + hex(libc_base))
-
+	add_note(
     p.interactive()
 
